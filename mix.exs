@@ -43,7 +43,8 @@ defmodule ChessEarth.Mixfile do
       {:absinthe_plug, "~> 1.4.2"},
       {:absinthe_ecto, git: "https://github.com/absinthe-graphql/absinthe_ecto.git"},
       {:faker, "~> 0.9"},
-      {:timex, "~> 3.1"}
+      {:timex, "~> 3.1"},
+      {:timex_ecto, "~> 3.0"}
     ]
   end
 

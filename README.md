@@ -1,5 +1,9 @@
 # ChessEarth
 
+## Database Schema
+
+![Database Schema](https://raw.githubusercontent.com/dmiotti/chess_earth_api/master/docs/database_schema.png)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

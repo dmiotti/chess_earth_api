@@ -5,7 +5,13 @@ defmodule ChessEarthWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", ChessEarthWeb do
+  scope "/", ChessEarthWeb do
     pipe_through :api
   end
+
+  forward "/api", Absinthe.Plug,
+    schema: ChessEarthWeb.Schema
+
+  forward "/graphiql", Absinthe.Plug.GraphiQL,
+    schema: ChessEarthWeb.Schema
 end

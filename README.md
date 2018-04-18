@@ -1,4 +1,6 @@
-# ChessEarth
+# chess.earth
+
+This project is a GraphQL API.
 
 ## Database Schema
 

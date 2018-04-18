@@ -20,4 +20,13 @@ defmodule ChessEarth.UserResolver do
     Accounts.get_user!(id)
     |> Accounts.update_user(user_params)
   end
+
+  def login(params, _info) do
+    with {:ok, user} <- ChessEarth.Accounts.User.authenticate(params),
+         {:ok, jwt, _} <- ChessEarth.Guardian.encode_and_sign(user),
+         {:ok, _} <- ChessEarth.Accounts.store_user(user, jwt)
+    do
+      {:ok, %{token: jwt}}
+    end
+  end
 end

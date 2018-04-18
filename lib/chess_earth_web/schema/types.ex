@@ -15,6 +15,10 @@ defmodule ChessEarthWeb.Schema.Types do
     field :name, :string
     field :start_at, :string
     field :end_at, :string
-    field :user, :user, resolve: assoc(:user)
+    field :user, :user, resolve: assoc(:users)
+  end
+
+  object :session do
+    field :token, :string
   end
 end

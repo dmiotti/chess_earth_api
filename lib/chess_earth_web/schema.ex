@@ -18,6 +18,13 @@ defmodule ChessEarthWeb.Schema do
     end
   end
 
+  input_object :update_event_params do
+    field :name, non_null(:string)
+    field :start_at, non_null(:datetime)
+    field :end_at, non_null(:datetime)
+    field :user_id, non_null(:id)
+  end
+
   input_object :update_user_params do
     field :name, :string
     field :email, :string
@@ -25,6 +32,12 @@ defmodule ChessEarthWeb.Schema do
   end
 
   mutation do
+    field :login, type: :session do
+      arg :email, non_null(:string)
+      arg :password, non_null(:string)
+      resolve &ChessEarth.UserResolver.login/2
+    end
+
     field :create_user, type: :user do
       arg :name, non_null(:string)
       arg :email, non_null(:string)
@@ -44,6 +57,17 @@ defmodule ChessEarthWeb.Schema do
       arg :end_at, non_null(:datetime)
       arg :user_id, non_null(:string)
       resolve &ChessEarth.EventResolver.create/2
+    end
+
+    field :update_event, type: :event do
+      arg :id, non_null(:id)
+      arg :event, :update_event_params
+      resolve &ChessEarth.EventResolver.update/2
+    end
+
+    field :delete_event, type: :event do
+      arg :id, non_null(:id)
+      resolve &ChessEarth.EventResolver.delete/2
     end
   end
 end

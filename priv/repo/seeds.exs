@@ -15,6 +15,9 @@ alias ChessEarth.Events
 {:ok, david} = Accounts.create_user(%{name: "David Miotti", email: "david@muxumuxu.com", password: "muxumuxu"})
 {:ok, audrey} = Accounts.create_user(%{name: "Audrey Labuxiere", email: "audrey@muxumuxu.com", password: "muxumuxu"})
 
+IO.puts david.id
+IO.puts audrey.id
+
 for _ <- 1..10 do
   Events.create_event(%{
     name: Faker.Lorem.sentence,

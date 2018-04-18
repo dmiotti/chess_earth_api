@@ -16,8 +16,8 @@ defmodule ChessEarthWeb.Context do
 
   defp build_context(conn) do
     with ["Bearer " <> token] <- get_req_header(conn, "authorization"),
-         {:ok, curent_user} <- authorize(token) do
-      %{curent_user: curent_user}
+         {:ok, current_user} <- authorize(token) do
+      %{current_user: current_user}
     else
       _ -> %{}
     end

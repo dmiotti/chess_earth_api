@@ -17,6 +17,10 @@ config :chess_earth, ChessEarthWeb.Endpoint,
   pubsub: [name: ChessEarth.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :guardian, Guardian,
+  issuer: "ChessEarth",
+  secret_key: "WhutUWazCHAvgeakT8NKSbQcUXWYACAO3Mbt7BTKdVO/9smozsQJ1yOn+hB5LuKu"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

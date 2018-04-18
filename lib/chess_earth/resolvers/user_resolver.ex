@@ -11,4 +11,13 @@ defmodule ChessEarth.UserResolver do
       user -> {:ok, user}
     end
   end
+
+  def create(args, _info) do
+    Accounts.create_user(args)
+  end
+
+  def update(%{id: id, user: user_params}, _info) do
+    Accounts.get_user!(id)
+    |> Accounts.update_user(user_params)
+  end
 end

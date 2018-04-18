@@ -32,17 +32,17 @@ defmodule ChessEarthWeb.Schema do
   end
 
   mutation do
-    field :login, type: :session do
-      arg :email, non_null(:string)
-      arg :password, non_null(:string)
-      resolve &ChessEarth.UserResolver.login/2
-    end
-
-    field :create_user, type: :user do
+    field :create_user, type: :session do
       arg :name, non_null(:string)
       arg :email, non_null(:string)
       arg :password, non_null(:string)
       resolve &ChessEarth.UserResolver.create/2
+    end
+
+    field :login, type: :session do
+      arg :email, non_null(:string)
+      arg :password, non_null(:string)
+      resolve &ChessEarth.UserResolver.login/2
     end
 
     field :update_user, type: :user do

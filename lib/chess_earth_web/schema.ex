@@ -53,9 +53,8 @@ defmodule ChessEarthWeb.Schema do
 
     field :create_event, type: :event do
       arg :name, non_null(:string)
-      arg :start_at, non_null(:datetime)
-      arg :end_at, non_null(:datetime)
-      arg :user_id, non_null(:string)
+      arg :start_at, non_null(:date)
+      arg :end_at, non_null(:date)
       resolve &ChessEarth.EventResolver.create/2
     end
 

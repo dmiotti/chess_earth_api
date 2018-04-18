@@ -13,8 +13,8 @@ defmodule ChessEarthWeb.Schema.Types do
   object :event do
     field :id, :id
     field :name, :string
-    field :start_at, :string
-    field :end_at, :string
+    field :start_at, :date
+    field :end_at, :date
     field :user, :user, resolve: assoc(:users)
   end
 

@@ -13,7 +13,14 @@ defmodule ChessEarth.UserResolver do
   end
 
   def create(args, _info) do
-    Accounts.create_user(args)
+    case Accounts.create_user(args) do
+    {:ok, user} ->
+      with {:ok, jwt, _} <- ChessEarth.Guardian.encode_and_sign(user),
+           {:ok, _} <- ChessEarth.Accounts.store_user(user, jwt)
+      do
+        {:ok, %{token: jwt}}
+      end
+    end
   end
 
   def update(%{id: id, user: user_params}, _info) do

@@ -20,9 +20,8 @@ defmodule ChessEarthWeb.Schema do
 
   input_object :update_event_params do
     field :name, non_null(:string)
-    field :start_at, non_null(:datetime)
-    field :end_at, non_null(:datetime)
-    field :user_id, non_null(:id)
+    field :start_at, non_null(:date)
+    field :end_at, non_null(:date)
   end
 
   input_object :update_user_params do

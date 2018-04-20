@@ -51,7 +51,7 @@ defmodule ChessEarth.Events do
   """
   def create_event(attrs \\ %{}) do
     %Event{}
-    |> Event.changeset(attrs)
+    |> Event.create_changeset(attrs)
     |> Repo.insert()
   end
 
@@ -69,7 +69,7 @@ defmodule ChessEarth.Events do
   """
   def update_event(%Event{} = event, attrs) do
     event
-    |> Event.changeset(attrs)
+    |> Event.update_changeset(attrs)
     |> Repo.update()
   end
 

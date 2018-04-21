@@ -7,7 +7,8 @@ defmodule ChessEarth.Events.Event do
     field :name, :string
     field :start_at, Timex.Ecto.Date
     field :end_at, Timex.Ecto.Date
-    field :user_id, :id
+
+    belongs_to :user, ChessEarth.Accounts.User
 
     timestamps()
   end

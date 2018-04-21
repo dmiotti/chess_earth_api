@@ -3,7 +3,7 @@ defmodule ChessEarth.EventResolver do
   import ChessEarth.AuthPatterns
 
   def all(_args, _info) do
-    Events.list_events
+    {:ok, Events.list_events}
   end
 
   def create(args, current_user(id: id)) do

@@ -1,8 +1,9 @@
 defmodule ChessEarth.UserResolver do
   alias ChessEarth.Accounts
+  import ChessEarth.AuthPatterns
 
   def all(_args, _info) do
-    {:ok, Accounts.list_users()}
+    {:ok, Accounts.list_users}
   end
 
   def find(%{id: id}, _info) do

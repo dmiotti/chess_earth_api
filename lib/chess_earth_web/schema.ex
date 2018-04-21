@@ -4,15 +4,15 @@ defmodule ChessEarthWeb.Schema do
   import_types Absinthe.Type.Custom
 
   query do
-    field :events, list_of(:event) do
+    field :events, non_null(list_of(non_null(:event))) do
       resolve &ChessEarth.EventResolver.all/2
     end
 
-    field :users, list_of(:user) do
+    field :users, non_null(list_of(non_null(:user))) do
       resolve &ChessEarth.UserResolver.all/2
     end
 
-    field :user, type: :user do
+    field :user, type: non_null(:user) do
       arg :id, non_null(:id)
       resolve &ChessEarth.UserResolver.find/2
     end
@@ -31,39 +31,39 @@ defmodule ChessEarthWeb.Schema do
   end
 
   mutation do
-    field :create_user, type: :session do
+    field :create_user, type: non_null(:session) do
       arg :name, non_null(:string)
       arg :email, non_null(:string)
       arg :password, non_null(:string)
       resolve &ChessEarth.UserResolver.create/2
     end
 
-    field :login, type: :session do
+    field :login, type: non_null(:session) do
       arg :email, non_null(:string)
       arg :password, non_null(:string)
       resolve &ChessEarth.UserResolver.login/2
     end
 
-    field :update_user, type: :user do
+    field :update_user, type: non_null(:user) do
       arg :id, non_null(:id)
       arg :user, :update_user_params
       resolve &ChessEarth.UserResolver.update/2
     end
 
-    field :create_event, type: :event do
+    field :create_event, type: non_null(:event) do
       arg :name, non_null(:string)
       arg :start_at, non_null(:date)
       arg :end_at, non_null(:date)
       resolve &ChessEarth.EventResolver.create/2
     end
 
-    field :update_event, type: :event do
+    field :update_event, type: non_null(:event) do
       arg :id, non_null(:id)
       arg :event, :update_event_params
       resolve &ChessEarth.EventResolver.update/2
     end
 
-    field :delete_event, type: :event do
+    field :delete_event, type: non_null(:event) do
       arg :id, non_null(:id)
       resolve &ChessEarth.EventResolver.delete/2
     end

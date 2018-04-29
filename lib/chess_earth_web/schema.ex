@@ -28,6 +28,19 @@ defmodule ChessEarthWeb.Schema do
     field :name, :string
     field :email, :string
     field :password, :string
+    field :address, :address_params
+  end
+
+  input_object :address_params do
+    field :formatted_address, :string
+    field :street_number, :string
+    field :street, :string
+    field :zip_code, :string
+    field :country, non_null(:string)
+    field :country_code, non_null(:string)
+    field :city, non_null(:string)
+    field :lat, non_null(:string)
+    field :lng, non_null(:string)
   end
 
   mutation do
@@ -54,6 +67,7 @@ defmodule ChessEarthWeb.Schema do
       arg :name, non_null(:string)
       arg :start_at, non_null(:date)
       arg :end_at, non_null(:date)
+      arg :address, :address_params
       resolve &ChessEarth.EventResolver.create/2
     end
 

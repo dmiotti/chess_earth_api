@@ -17,9 +17,7 @@ defmodule ChessEarth.Events do
       [%Event{}, ...]
 
   """
-  def list_events do
-    Repo.all(Event)
-  end
+  def list_events, do: Repo.all(Event)
 
   @doc """
   Gets a single event.

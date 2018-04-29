@@ -29,6 +29,20 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+--
+-- Name: hstore; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
+
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -44,7 +58,8 @@ CREATE TABLE public.events (
     end_at date,
     user_id bigint,
     inserted_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    address jsonb
 );
 
 
@@ -175,5 +190,5 @@ ALTER TABLE ONLY public.events
 -- PostgreSQL database dump complete
 --
 
-INSERT INTO public."schema_migrations" (version) VALUES (20180417201921), (20180417202034);
+INSERT INTO public."schema_migrations" (version) VALUES (20180417201921), (20180417202034), (20180421233258), (20180421233721);
 

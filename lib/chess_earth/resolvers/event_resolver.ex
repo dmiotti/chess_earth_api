@@ -15,7 +15,7 @@ defmodule ChessEarth.EventResolver do
   def update(%{id: id, event: event_params}, current_user(id: user_id)) do
     event = Events.get_event!(id)
     case event.user_id do
-      user_id -> Events.update_event(event, event_params)
+      ^user_id -> Events.update_event(event, event_params)
       _ -> {:error, "Not authorized"}
     end
   end

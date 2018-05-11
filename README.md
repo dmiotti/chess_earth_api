@@ -1,6 +1,6 @@
 # chess.earth
 
-This project is a GraphQL API.
+This project is a GraphQL API written in Elixir.
 
 ## Database Schema
 

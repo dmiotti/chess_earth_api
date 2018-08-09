@@ -24,14 +24,14 @@ for _ <- 1..10 do
       end_at: Timex.shift(Timex.now, days: 3),
       user_id: user_id,
       address: %{
-        formatted_address: "196 Rue Guillaume Leblanc, 33000 Bordeaux France",
         street: "Rue Guillaume Leblanc",
         street_number: "196",
         lat: "44.861824",
         lng: "-0.567678",
         city: "Bordeaux",
         country: "France",
-        country_code: "FR"
+        country_code: "FR",
+        zip_code: "33000"
       }
     }
   )

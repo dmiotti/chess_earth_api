@@ -20,18 +20,23 @@ defmodule ChessEarthWeb.Schema.Types do
   end
 
   object :address do
-    field :formatted_address, :string
-    field :street_number, :string
-    field :street, :string
-    field :zip_code, :string
-    field :country, :string
-    field :country_code, :string
-    field :city, :string
-    field :lat, :string
-    field :lng, :string
+    field :street_number, :string, resolve: key("street_number")
+    field :street, non_null(:string), resolve: key("street")
+    field :zip_code, non_null(:string), resolve: key("zip_code")
+    field :country, non_null(:string), resolve: key("country")
+    field :country_code, non_null(:string), resolve: key("country_code")
+    field :city, non_null(:string), resolve: key("city")
+    field :lat, non_null(:string), resolve: key("lat")
+    field :lng, non_null(:string), resolve: key("lng")
   end
 
   object :session do
     field :token, non_null(:string)
+  end
+
+  def key(key_name) do
+    fn thing, _, _ ->
+      {:ok, Map.get(thing, key_name)}
+    end
   end
 end

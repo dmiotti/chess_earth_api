@@ -22,20 +22,19 @@ defmodule ChessEarthWeb.Schema do
     field :name, non_null(:string)
     field :start_at, non_null(:date)
     field :end_at, non_null(:date)
+    field :address, :address_params
   end
 
   input_object :update_user_params do
     field :name, :string
     field :email, :string
     field :password, :string
-    field :address, :address_params
   end
 
   input_object :address_params do
-    field :formatted_address, :string
     field :street_number, :string
-    field :street, :string
-    field :zip_code, :string
+    field :street, non_null(:string)
+    field :zip_code, non_null(:string)
     field :country, non_null(:string)
     field :country_code, non_null(:string)
     field :city, non_null(:string)

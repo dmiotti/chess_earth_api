@@ -7,8 +7,7 @@ This project is a GraphQL API written in Elixir.
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create ecto.migrate`
-  * Seed the database `mix run priv/repo/seeds.exs`
+  * Create, migrate and seed your database with `mix ecto.setup`
   * Start Phoenix endpoint with `mix phx.server`
 
 Now you can visit the GraphiQL interface [`localhost:4000/graphiql`](http://localhost:4000/graphiql ) from your browser.

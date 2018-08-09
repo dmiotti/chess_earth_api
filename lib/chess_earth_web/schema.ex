@@ -32,6 +32,7 @@ defmodule ChessEarthWeb.Schema do
   end
 
   input_object :address_params do
+    field :name, :string
     field :street_number, :string
     field :street, non_null(:string)
     field :zip_code, non_null(:string)

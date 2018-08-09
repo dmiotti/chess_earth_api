@@ -24,6 +24,7 @@ for _ <- 1..10 do
       end_at: Timex.shift(Timex.now, days: 3),
       user_id: user_id,
       address: %{
+        name: "Chez Jean Mich",
         street: "Rue Guillaume Leblanc",
         street_number: "196",
         lat: "44.861824",

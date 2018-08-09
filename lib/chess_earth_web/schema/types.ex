@@ -20,6 +20,7 @@ defmodule ChessEarthWeb.Schema.Types do
   end
 
   object :address do
+    field :name, :string, resolve: key("name")
     field :street_number, :string, resolve: key("street_number")
     field :street, non_null(:string), resolve: key("street")
     field :zip_code, non_null(:string), resolve: key("zip_code")

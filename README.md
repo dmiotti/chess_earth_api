@@ -17,6 +17,8 @@ Now you can visit the GraphiQL interface [`localhost:4000/graphiql`](http://loca
 ```shell
 mix phx.server # Launch the server
 iex -S mix # Launch the console
+
+heroku run mix ecto.migrate # Run a migration on Heroku
 ```
 
 ## 🗺 Database Schema

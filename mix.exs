@@ -49,7 +49,8 @@ defmodule ChessEarth.Mixfile do
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
       {:guardian, "~> 1.0.1"},
-      {:expat, "~> 1.0"}
+      {:expat, "~> 1.0"},
+      {:ex_guard, "~> 1.3", only: :dev}
     ]
   end
 
@@ -63,7 +64,7 @@ defmodule ChessEarth.Mixfile do
     [
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      "test": ["ecto.create --quiet", "ecto.migrate", "test"],
+      "test": ["ecto.reset", "test"],
       "ecto.create": ["ecto.create", "ecto.migrate"],
       "ecto.migrate": ["ecto.migrate", "ecto.dump"]
     ]

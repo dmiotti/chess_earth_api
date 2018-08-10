@@ -25,12 +25,15 @@ defmodule ChessEarth.Accounts.User do
     user
     |> cast(attrs, @required_fields, @optional_fields)
     |> validate_required([:name, :email])
+    |> unique_constraint(:email)
   end
 
+  @spec update_changeset(any(), any()) :: none()
   def update_changeset(%User{} = user, params \\ %{}) do
     user
     |> cast(params, [:name, :email], [:password])
     |> validate_required([:name, :email])
+    |> unique_constraint(:email)
     |> put_pass_hash
   end
 
@@ -38,6 +41,8 @@ defmodule ChessEarth.Accounts.User do
     user
     |> cast(params, [:name, :email, :password])
     |> validate_required([:name, :email, :password])
+    |> unique_constraint(:email)
+    |> unique_constraint(:password)
     |> put_pass_hash
   end
 

@@ -51,7 +51,9 @@ defmodule ChessEarth.Mixfile do
       {:guardian, "~> 1.0.1"},
       {:expat, "~> 1.0"},
       {:ex_guard, "~> 1.3", only: :dev},
-      {:cors_plug, "~> 1.5"}
+      {:cors_plug, "~> 1.5"},
+      {:floki, "~> 0.20.0"},
+      {:httpoison, "~> 1.0"}
     ]
   end
 

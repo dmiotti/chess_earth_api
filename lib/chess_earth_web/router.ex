@@ -2,6 +2,7 @@ defmodule ChessEarthWeb.Router do
   use ChessEarthWeb, :router
 
   pipeline :api do
+    plug CORSPlug, origin: ["http://localhost:3000", "https://chess.earth"]
     plug :accepts, ["json"]
   end
 
@@ -9,11 +10,8 @@ defmodule ChessEarthWeb.Router do
     plug ChessEarthWeb.Context
   end
 
-  scope "/", ChessEarthWeb do
+  scope "/graphql" do
     pipe_through :api
-  end
-
-  scope "/api" do
     pipe_through :graphql
 
     forward "/", Absinthe.Plug,

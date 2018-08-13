@@ -50,7 +50,8 @@ defmodule ChessEarth.Mixfile do
       {:bcrypt_elixir, "~> 1.0"},
       {:guardian, "~> 1.0.1"},
       {:expat, "~> 1.0"},
-      {:ex_guard, "~> 1.3", only: :dev}
+      {:ex_guard, "~> 1.3", only: :dev},
+      {:cors_plug, "~> 1.5"}
     ]
   end
 

@@ -2,7 +2,7 @@ defmodule ChessEarth.EventResolver do
   alias ChessEarth.Events
   import ChessEarth.AuthPatterns
 
-  def all() do
+  def all(_args, _info) do
     {:ok, Events.list_events}
   end
 

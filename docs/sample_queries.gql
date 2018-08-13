@@ -1,0 +1,68 @@
+# Create an account
+mutation {
+  createUser(email:"david@muxumuxu.com", password:"muxumuxu", name:"David Miotti"){
+    token
+  }
+}
+
+# Login
+mutation {
+  login(email:"david@muxumuxu.com", password:"muxumuxu"){
+    token
+  }
+}
+
+# Create an event
+mutation {
+  createEvent(
+    name:"Interieur ASPOM 2018",
+    startAt:"2018-07-07",
+    endAt:"2018-07-09",
+    address: {
+      street:"rue Amedee St Germain",
+      streetNumber:"131 bis",
+      zipCode:"33800",
+      city:"Bordeaux",
+      country:"France",
+      countryCode:"FR",
+      lat:"44.817599",
+      lng:"-0.564362"
+    }
+  ){
+    id
+    name
+    startAt
+    endAt
+    address{
+      street
+      streetNumber
+      zipCode
+      country
+      city
+      countryCode
+      lat
+      lng
+    }
+  }
+}
+
+# Retreive all events
+{
+  events{
+    id
+    name
+    startAt
+    endAt
+    address{
+      streetNumber
+      street
+      name
+      city
+      zipCode
+      country
+      countryCode
+      lat
+      lng
+    }
+  }
+}

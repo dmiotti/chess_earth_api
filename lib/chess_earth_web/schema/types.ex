@@ -37,7 +37,7 @@ defmodule ChessEarthWeb.Schema.Types do
 
   def key(key_name) do
     fn thing, _, _ ->
-      {:ok, Map.get(thing, key_name)}
+      {:ok, Map.get(thing, key_name, Map.get(thing, String.to_atom(key_name)))}
     end
   end
 end

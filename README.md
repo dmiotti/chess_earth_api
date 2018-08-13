@@ -28,7 +28,7 @@ heroku run mix ecto.migrate # Run a migration on Heroku
 
 ## Sample GraphQL queries
 
-You can find exemple of GraphQL queries and mutations [here](https://raw.githubusercontent.com/dmiotti/chess_earth_api/master/docs/sample_queries.gql).
+You can find exemples of GraphQL queries and mutations [here](https://raw.githubusercontent.com/dmiotti/chess_earth_api/master/docs/sample_queries.gql).
 
 ## 📖 Learn more
 

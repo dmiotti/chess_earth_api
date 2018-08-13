@@ -20,24 +20,24 @@ defmodule ChessEarthWeb.Schema.Types do
   end
 
   object :address do
-    field :name, :string, resolve: key("name")
-    field :street_number, :string, resolve: key("street_number")
-    field :street, non_null(:string), resolve: key("street")
-    field :zip_code, non_null(:string), resolve: key("zip_code")
-    field :country, non_null(:string), resolve: key("country")
-    field :country_code, non_null(:string), resolve: key("country_code")
-    field :city, non_null(:string), resolve: key("city")
-    field :lat, non_null(:string), resolve: key("lat")
-    field :lng, non_null(:string), resolve: key("lng")
+    field :name, :string, resolve: hstore_get(:name)
+    field :street_number, :string, resolve: hstore_get(:street_number)
+    field :street, non_null(:string), resolve: hstore_get(:street)
+    field :zip_code, non_null(:string), resolve: hstore_get(:zip_code)
+    field :country, non_null(:string), resolve: hstore_get(:country)
+    field :country_code, non_null(:string), resolve: hstore_get(:country_code)
+    field :city, non_null(:string), resolve: hstore_get(:city)
+    field :lat, non_null(:string), resolve: hstore_get(:lat)
+    field :lng, non_null(:string), resolve: hstore_get(:lng)
   end
 
   object :session do
     field :token, non_null(:string)
   end
 
-  def key(key_name) do
-    fn thing, _, _ ->
-      {:ok, Map.get(thing, key_name, Map.get(thing, String.to_atom(key_name)))}
+  def hstore_get(key) do
+    fn hstore, _, _ ->
+      {:ok, Map.get(hstore, key, Map.get(hstore, Atom.to_string(key)))}
     end
   end
 end

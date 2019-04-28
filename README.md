@@ -13,7 +13,7 @@ To start your Phoenix server:
   * Create, migrate and seed your database with `mix ecto.setup`
   * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit the GraphiQL interface [`localhost:4000/graphiql`](http://localhost:4000/graphiql ) from your browser.
+Now you can visit the GraphiQL interface [`localhost:4000/graphiql`](http://localhost:4000/graphiql) from your browser.
 
 ## 👨🏽‍💻 Everyday actions
 
@@ -25,6 +25,7 @@ mix ecto.create # Create the database
 mix ecto.migrate # Migrate the database schema
 mix run priv/repo/seeds.exs # Run seeds
 mix ecto.reset # Create, migrate & seed
+mix test # Launch unit tests
 
 heroku run mix ecto.migrate # Run a migration on Heroku
 ```
@@ -59,4 +60,4 @@ Every commit on the `master` branch triggers a deployment on [Heroku](https://da
 
 ---
 
-Made with ❤ by [David Miotti](https://david.show).
+Made with ❤ by [David Miotti](https://davidmiotti.com).

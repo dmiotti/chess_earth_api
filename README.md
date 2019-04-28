@@ -26,6 +26,7 @@ mix ecto.migrate # Migrate the database schema
 mix run priv/repo/seeds.exs # Run seeds
 mix ecto.reset # Create, migrate & seed
 mix test # Launch unit tests
+mix guard # Launch test on save
 
 heroku run mix ecto.migrate # Run a migration on Heroku
 ```
